@@ -1,8 +1,0 @@
-bin/tendermint
-bin/basecli
-node_modules/
-.nyc_output
-.idea
-coverage
-*.lcov
-test/
