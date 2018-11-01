@@ -17,7 +17,7 @@ export default function createABCIServer(stateMachine, initialState): any {
       try {
         let tx = decodeTx(request.tx)
         try {
-          return stateMachine.transition({ type: 'transaction', data: tx })
+          return Object.assign({ code: 0 }, stateMachine.transition({ type: 'transaction', data: tx }))
         } catch (e) {
           return { code: 1, log: e.toString() }
         }
