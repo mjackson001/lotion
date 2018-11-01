@@ -80,6 +80,10 @@ export default async function createTendermintProcess({
     opts.p2p.persistentPeers = peers.join(',')
   }
 
+  configToml = fs.readFileSync(cfgPath, 'utf8')
+  configToml = configToml.replace('index_all_tags = false', 'index_all_tags = true')
+  fs.writeFileSync(cfgPath, configToml)
+
   /**
    * overwrite the generated genesis.json with
    * the correct one if specified by the developer.
